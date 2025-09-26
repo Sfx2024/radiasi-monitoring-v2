@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Sistem Monitoring Radiasi Matahari</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+  <script src="config.js"></script></head>
+<body>
+
+  <!-- Tombol Mode Terang/Gelap -->
+  <div id="mode-toggle">
+    <button onclick="toggleMode()">🌙 / ☀️</button>
+  </div>
+
+  <!-- Header -->
+  <header>
+    <h1>Sistem Monitoring Radiasi Matahari</h1>
+    <p>Visualisasi data intensitas radiasi secara real-time dan edukatif</p>
+  </header>
+
+  <!-- Filter Tanggal -->
+  <section id="filter">
+    <label for="tanggal">Pilih Tanggal:</label>
+    <input type="date" id="tanggal">
+    <button onclick="filterData()">Tampilkan</button>
+  </section>
+
+  <!-- Grafik -->
+  <section id="grafik">
+    <h2>Grafik Radiasi Matahari</h2>
+    <canvas id="grafikRadiasi" width="800" height="400"></canvas>
+  </section>
+
+  <!-- Statistik Ringkas -->
+  <section id="statistik">
+    <h3>Statistik Hari Ini</h3>
+    <ul>
+      <li>Maksimum: <span id="max">--</span></li>
+      <li>Minimum: <span id="min">--</span></li>
+      <li>Rata-rata: <span id="avg">--</span></li>
+    </ul>
+  </section>
+
+  <!-- Simulasi PLTS -->
+  <section id="simulasi">
+    <h3>Simulasi Energi PLTS</h3>
+    <p>Estimasi energi berdasarkan data radiasi hari ini:</p>
+    <p><strong><span id="energi">--</span> kWh</strong></p>
+  </section>
+
+  <!-- Mode Edukasi -->
+  <section id="edukasi">
+    <button onclick="toggleEdukasi()">Tampilkan Penjelasan</button>
+    <div id="kontenEdukasi" style="display:none;">
+      <p>
+        Radiasi matahari adalah energi elektromagnetik yang dipancarkan oleh matahari dan mencapai permukaan bumi.
+        Data ini penting untuk analisis energi surya, iklim, dan kenyamanan termal. Sistem ini membantu memantau intensitas radiasi secara real-time dan memberikan wawasan edukatif bagi pengguna.
+      </p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Sistem Monitoring Radiasi - Felix Bragi Aditya Sitorus</p>
+  </footer>
+
+  <!-- Script -->
+  <script src="script.js"></script>
+
+</body>
+</html>
